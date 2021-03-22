@@ -1,18 +1,36 @@
 // Write your JavaScript code here!
 
-/* This block of code shows how to format the HTML once you fetch some planetary JSON!
-<h2>Mission Destination</h2>
-<ol>
-   <li>Name: ${}</li>
-   <li>Diameter: ${}</li>
-   <li>Star: ${}</li>
-   <li>Distance from Earth: ${}</li>
-   <li>Number of Moons: ${}</li>
-</ol>
-<img src="${}">
-*/
+/* This block of code shows how to format the HTML once you fetch some planetary JSON!*/
+
+
+
+
 
 window.addEventListener("load", function() {
+
+
+const missionTarget = document.getElementById("missionTarget")
+fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+   response.json().then( function(json) {
+      let random = Math.floor((Math.random() * json.length)+ 0);
+
+      missionTarget.innerHTML = 
+      `<h2>Mission Destination</h2>
+      <ol>
+         <li>Name: ${json[Number(random)].name}</li>
+         <li>Diameter: ${json[Number(random)].diameter}</li>
+         <li>Star: ${json[Number(random)].star}</li>
+         <li>Distance from Earth: ${json[Number(random)].distance}</li>
+         <li>Number of Moons: ${json[Number(random)].moons}</li>
+      </ol>
+      <img src="${json[Number(random)].image}">`
+
+
+   });
+
+
+})
+
 
    const button = document.getElementById("formSubmit");
 
@@ -47,18 +65,21 @@ button.addEventListener('click', function(event){
 
       const faultyItems = document.getElementById("faultyItems");
       const launchStatus = document.getElementById("launchStatus");
+      const fuelStatus = document.getElementById("fuelStatus");
+      const cargoStatus = document. getElementById("cargoStatus");
 
       if (fuelLevel.value < 10000){
          faultyItems.style.visibility = "visible";
-         faultyItems.innerHTML = `There is not enough fuel for the journey.`;
+         fuelStatus.innerHTML = `There is not enough fuel for the journey.`;
          launchStatus.style.color = "red";
          launchStatus.innerHTML = `Shuttle not ready for launch`;
       }else if (cargoMass.value > 10000){
          faultyItems.style.visibility = "visible";
-         faultyItems.innerHTML = `There is too much mass for the shuttle to take off.`;
+         cargoStatus.innerHTML = `There is too much mass for the shuttle to take off.`;
          launchStatus.style.color = "red";
          launchStatus.innerHTML = `Shuttle not ready for launch`;
-      } else {
+      } else if (typeof(pilotName.value) === 'string', typeof(copilotName.value) === 'string',typeof(Number(fuelLevel.value)) === 'number' ,typeof(Number(cargoMass.value)) === 'number'){
+         faultyItems.style.visibility = "visible";
          launchStatus.style.color = "green";
          launchStatus.innerHTML = `Shuttle is ready for launch`;
       }
