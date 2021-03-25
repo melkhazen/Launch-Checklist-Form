@@ -80,11 +80,13 @@ window.addEventListener("load", function() {
          faultyItems.style.visibility = "visible";
          launchStatus.style.color = "green";
          launchStatus.innerHTML = `Shuttle is ready for launch`;
-         }else if (fuelLevel.value > 10000) {
+         };
+         if (Number(fuelLevel.value) > 10000) {
             fuelStatus.innerHTML = "Fuel level high enough for launch"
-         }else if (cargoMass < 10000) {
-            cargoMass.innerHTML = "Cargo mass low enough for launch"
-         }
+         };
+         if (Number(cargoMass.value) < 10000) {
+            cargoStatus.innerHTML = "Cargo mass low enough for launch"
+         };
    
          
    
