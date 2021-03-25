@@ -17,9 +17,8 @@ div {
   width: 25%;
   border: 3px solid black;
   padding: 10px;
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(195, 197, 195, 0.6);
   border-radius: 25px;
-
 }
 
 #launchStatusCheck {
@@ -29,16 +28,14 @@ div {
   width: 50%;
   border: 3px solid black;
   padding: 10px;
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(195, 197, 195, 0.6);
   border-radius: 25px;
-
 }
 
 #missionTarget img {
   max-width: 40%;
   max-height: 250px;
   opacity: 100;
-
 }
 
 #missionTarget {
@@ -48,9 +45,8 @@ div {
   width: 50%;
   border: 3px solid black;
   padding: 10px;
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(195, 197, 195, 0.6);
   border-radius: 25px;
-
 }
 
 button {
@@ -69,5 +65,4 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-
- }
+}
